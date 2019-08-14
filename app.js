@@ -1,0 +1,20 @@
+import express from 'express';
+import db from './db/db';
+
+// Set up the express app
+const app = express();
+
+// get all todos
+app.get('/api/todos', (req, res) => {
+    res.status(200).send({
+        success : 'true',
+        message : 'you have got the data successfully',
+        todos : db
+    })
+});
+
+const PORT = 5000;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port - ${PORT}`)
+});
